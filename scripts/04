@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Crontab rules:
+# 0 0 * * * /bin/sh /root/init/script/04
+#
+# ^ every day at midnight
+
+nsa() {
+	echo "Crontab just changed"| mail -s "Your PC" root@localhost.localdomain
+}
+
+watcher() {
+	c1=""
+
+	while [[ true ]]
+	do
+		c2=`md5sum /etc/crontab`
+		if [[ $c1 != $c2 ]] ; then
+			nsa
+			c1=$c2
+		fi
+		sleep 10
+	done
+}
+
+watcher

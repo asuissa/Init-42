@@ -1,0 +1,3 @@
+En executant la commande nslookup de l'ip on s'apercoit que c'est un
+serveur DHCP. Un serveur DHCP est un serveur qui délivre des adresses IP aux
+ordinateurs qui se connectent sur le réseau.
